@@ -107,14 +107,14 @@ class SelectImage(Screen):
 				try:
 					self.imageBrandList = json.load(urlopen(url, timeout=3))
 				except:
-					url = "%s%s" % ("https://raw.githubusercontent.com/OpenPLi/FlashImage/main/", self.model)
+					url = "%s%s" % ("https://raw.githubusercontent.com/OpenDelta-Team/FlashImage/main/", self.model)
 					try:
 						self.imageBrandList = json.load(urlopen(url, timeout=3))
 					except:
 						print("[FlashImage] getImageBrandList Error: Unable to load json data from URL '%s'!" % url)
 				if self.imageBrandList:
 					if "OpenPLi" in self.imageBrandList.keys():
-						self.selectedImage[1] = self.imageBrandList["OpenPLi"]
+						self.selectedImage[1] = self.imageBrandList["AREADELTASAT"]
 					self.models = set([self.imageBrandList[image]['model'] for image in self.imageBrandList.keys()])
 					if len(self.imageBrandList) > 1:
 						self["key_blue"].setText(_("Other Images"))
