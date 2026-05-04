@@ -44,7 +44,7 @@ class SelectImage(Screen):
 		self.expanded = []
 		self.model = HardwareInfo().get_machine_name()
 		self.machine = HardwareInfo().get_machinebuild_name()
-		self.selectedImage = ["OpenPLi", {"url": "https://downloads.openpli.org/json/%s" % self.model, "model": self.model}]
+		self.selectedImage = ["OpenPLi", {"url": "https://images.areadeltasat.net/json/%s" % self.model, "model": self.model}]
 		self.models = [self.model]
 		self.setTitle(_("Select image"))
 		self["key_red"] = StaticText(_("Cancel"))
@@ -103,7 +103,7 @@ class SelectImage(Screen):
 			return [w if not f(w) else next(y) for w in ls]
 
 		if not self.imageBrandList:
-				url = "%s%s" % ("https://raw.githubusercontent.com/OpenPLi/FlashImage/main/", self.machine)
+				url = "%s%s" % ("https://raw.githubusercontent.com/OpenDelta-Team/FlashImage/main/", self.machine)
 				try:
 					self.imageBrandList = json.load(urlopen(url, timeout=3))
 				except:
